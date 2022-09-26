@@ -1,0 +1,55 @@
+<div app-cesium id="cesiumContainer"></div>
+<!-- left panel button start -->
+<button class="left-btn" id="panelHide"  *ngIf="panelHide" (click)="openClosePanel($event)" #panelHide>
+    Hide Menu
+</button>
+<!-- left panel button end -->
+
+<!-- switch mood button start -->
+<button class="switch-mood" id="switchMood" (click)="switchMoods()" #switchMood>
+    Switch
+</button>
+<!-- switch mood button end -->
+
+<!-- left panel first start -->
+<div id="leftPanel" class="left-panel" *ngIf="panel" #leftPanel>
+
+
+    <!-- search -->
+    <app-search (event)="recieveSearchMessage($event)"></app-search>
+
+
+    <!-- Views -->
+    <app-views (eventChange)="onChange($event)" (eventChange1)="onChange1($event)" (eventChange2)="onChange2($event)" (eventChange3)="onChange3($event)" (eventChange4)="onChange4($event)"></app-views>
+
+
+    <!-- filters -->
+    <app-filter (event)="recieveFilterMessage($event)"></app-filter>
+
+
+    <!-- ground view -->
+    <app-ground-view (event)="recieveLocationMessage($event)"></app-ground-view>
+
+
+    <div class="container3">
+        <div class="box">
+            <button id="saveFilter" (click)="SaveValue()"  #saveFilter>Save</button>
+        </div>
+    </div>
+
+</div>
+<!-- left panel end -->
+
+
+<!-- Views opening panels -->
+<app-panel *ngIf="panels" [event]="event" [event1]="event1" [event2]="event2" [event3]="event3" [event4]="event4"></app-panel>
+
+
+
+
+<!-- switch to second panel -->
+<app-switch-panel *ngIf="switchingMood"></app-switch-panel>
+
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+    <p style="color: white">Image Rendering... </p>
+</ngx-spinner> -->
