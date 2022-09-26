@@ -1,0 +1,729 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body,
+div[appCesium],
+#cesiumContainer {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+:root {
+    --main-color: #272a2c90;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button{
+    outline: none;
+}
+
+/* left btn */
+.left-btn {
+    width: 250px;
+    position: absolute;
+    top: 575px;
+    left: 20px;
+    padding: 7px;
+    background: var(--main-color);
+    border: 1px solid #61616160;
+    color: #fff;
+    z-index: 2;
+    cursor: pointer;
+    /* display: none; */
+}
+
+.left-btn:hover {
+    background: #464545;
+}
+
+.left-btn.show {
+    top: 20px;
+}
+
+/* left panel  */
+.left-panel {
+    width: 250px;
+    height: 550px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    overflow-y: scroll;
+    overflow-x: visible;
+    transition: all 0.5s;
+}
+
+.left-panel.show {
+    animation: hide .7s ease;
+}
+
+@keyframes hide {
+    from {
+        height: 550px;
+    }
+
+    to {
+        height: 0px;
+    }
+}
+
+.left-panel .container1 {
+    width: 100%;
+    background: var(--main-color);
+    margin-bottom: 5px;
+}
+
+.left-panel .container1 .box {
+    width: 100%;
+    height: 35px;
+    color: #fff;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #61616160;
+}
+
+.left-panel .container1 .box:nth-child(1) {
+    border: none;
+}
+
+.left-panel .container1 .box .text {
+    width: 90px;
+    font-size: .8rem;
+}
+
+.left-panel .container1 .box .input {
+    width: calc(100% - 90px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.left-panel .container1 .input .range {
+    width: 65%;
+    height: 22px;
+    -webkit-appearance: none;
+    background: #38383370;
+    outline: none;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+    cursor: w-resize;
+}
+
+.left-panel .container1 .input label {
+    width: 35%;
+    background: #38383370;
+    color: #2196F3;
+    font-size: .8rem;
+    height: 20px;
+    padding: 3px 5px;
+}
+
+.left-panel .container1 .input .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1px;
+    height: 100%;
+    /* border-radius: 50%; */
+    background: #2196F3;
+    cursor: w-resize;
+    box-shadow: -100px 0 0 100px #2196F3;
+}
+
+.left-panel .container1 .box .input [type='search'] {
+    width: 100%;
+    padding: 5px;
+    background: #38383370;
+    border: none;
+    outline: none;
+    font-size: .7rem;
+    color: white;
+}
+
+
+.left-panel .container1 .box .input [type='number'],
+.left-panel .container1 .box .input [type='date'] {
+    padding: 2px 2px 2px 4px;
+    height: 18px;
+    width: 35%;
+    background: #38383370;
+    border: none;
+    outline: none;
+    margin: 2px;
+    font-size: .7rem;
+    color: white;
+}
+
+.left-panel .container1 .box .input [type='number'] {
+    color: #2196F3;
+}
+
+.left-panel .container1 .box .input [type='number']::placeholder {
+    color: #2196F3;
+}
+
+
+.left-panel .container2 {
+    width: 100%;
+    margin-bottom: 5px;
+    background: var(--main-color);
+}
+
+.left-panel .container2 .box {
+    width: 100%;
+    height: 35px;
+    color: #fff;
+    padding: 5px 10px;
+    border-top: 1px solid #61616160;
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+.left-panel .container2 .box:hover {
+    background: #00000080;
+}
+
+.left-panel .container2 .box.active {
+    background: #464545;
+}
+
+.left-panel .container2 .box:nth-child(1) {
+    border: none;
+}
+
+.left-panel .container2 .box1 {
+    width: 100%;
+    height: 35px;
+    color: #fff;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.left-panel .container3 {
+    width: 100%;
+    margin-bottom: 5px;
+    background: var(--main-color);
+    padding: 5px 0;
+}
+
+.left-panel .container3 .box {
+    width: 100%;
+    margin: 2px 0;
+    color: #fff;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-panel .container3 .text {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.left-panel .container3 .box button {
+    margin-top: 4px;
+    width: 100%;
+    padding: 5px;
+    font-size: .9rem;
+    color: #fff;
+    background: transparent;
+    border: 1px solid #61616160;
+    cursor: pointer;
+}
+
+select {
+    width: 100%;
+    outline: none;
+}
+
+.left-panel .container3 .box [type='number'] {
+    width: 60%;
+    padding: 3px 5px;
+    border: none;
+    outline: none;
+    margin: 2px;
+    font-size: .8rem;
+}
+
+.left-panel .container4 {
+    width: 100%;
+    padding-bottom: 8px;
+    margin-bottom: 5px;
+    background: var(--main-color);
+}
+
+.left-panel .container4 .box {
+    height: 50px;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.left-panel .container4 .box1 {
+    width: 100%;
+    height: 30px;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.left-panel .container4 .box1 .small-txt {
+    padding-top: 12px;
+    font-size: .8rem;
+}
+
+.left-panel .container4 .box1 .txt {
+    width: 100%;
+    padding: 7px;
+    font-size: 1rem;
+    background: #2e2d2d;
+    cursor: pointer;
+}
+
+.left-panel .container4 .box1 .txt:hover {
+    background: #575555;
+}
+
+.left-panel .container4 .box1 select {
+    padding: 5px;
+    background: #61616160;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: .7rem;
+}
+
+.left-panel .container4 .box1 select option {
+    background: #505050;
+    font-size: .8rem;
+}
+
+.left-panel .container4 .box .swi {
+    width: 40px;
+}
+
+.left-panel .container4 .box .text {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.left-panel .container4 .box1 .txt {
+    font-size: .8rem;
+}
+
+.small-panel {
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* object type */
+.object-type {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 130px;
+    border-radius: 10px;
+    background: var(--main-color);
+    /* display: none; */
+    z-index: 6;
+}
+
+.object-type.show {
+    display: block;
+}
+
+.object-type .header {
+    height: 30px;
+    background: #505050;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.object-type .body {
+    width: 100%;
+    padding: 10px;
+}
+
+.object-type .body .box {
+    display: flex;
+    align-items: center;
+}
+
+.object-type .body .box .small-box {
+    height: 10px;
+    width: 10px;
+    margin: 0 10px 0 0;
+}
+
+.object-type .body .box .text {
+    color: #fff;
+    font-size: .9rem;
+}
+
+/* switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 15px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    background: #616161;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: -3px;
+    bottom: 0px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #464545;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #505050;
+}
+
+/* #selectCountryofOrigin {
+    display: none;
+} */
+
+/* #selectObjectType {
+    display: none;
+} */
+
+/* #filterValue {
+    display: none;
+} */
+
+/* #switchGroundShow {
+    display: none;
+} */
+
+/* filter list  */
+.left-panel .filter {
+    width: 100%;
+    padding: 0 10px 5px 10px;
+}
+
+.left-panel .filter li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .8rem;
+}
+
+.left-panel .filter li>div {
+    height: 18px;
+    width: 18px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    cursor: pointer;
+    background: #fff;
+    color: #2e2d2d;
+}
+
+.left-panel .filter li:hover>div {
+    visibility: visible;
+}
+
+/* switch mood */
+
+.switch-mood {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: 280px;
+    height: 30px;
+    width: 60px;
+    background: var(--main-color);
+    border: 1px solid #61616160;
+    color: #fff;
+    cursor: pointer;
+}
+
+.switch-mood:hover {
+    background: #464545;
+}
+
+/* secondSwitchMood */
+/* #secondSwitchMood {
+    display: none;
+} */
+
+/* second-left-panel */
+.nav {
+    z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 30px;
+    width: 250px;
+}
+
+.nav ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    background: #50505080;
+    padding: 5px;
+    color: #fff;
+    margin: 0 2px;
+    font-size: .8rem;
+    border: 1px solid #61616160;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.nav ul li:hover {
+    background: #505050;
+}
+
+
+.second-left-panel {
+    z-index: 1;
+    width: 250px;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background: var(--main-color);
+    /* border: 1px solid red; */
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.second-left-panel .box1 {
+    height: 25px;
+    width: 80%;
+    color: #fff;
+    font-size: .9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.second-left-panel .box2 {
+    height: 30px;
+    width: 100%;
+    color: #fff;
+    font-size: .9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.second-left-panel .box2 .select {
+    width: 88%;
+}
+
+.second-left-panel .box2 .select select {
+    width: 100%;
+    padding: 4px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.second-left-panel .box2 .icon {
+    width: 12%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.second-left-panel .box2 .icon>img {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+/* right panel */
+.right-panel {
+    z-index: 1;
+    width: 400px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background: var(--main-color);
+}
+
+.right-panel .header {
+    height: 25px;
+    width: 100%;
+    color: #fff;
+    font-size: .9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #505050;
+    padding: 0 5px;
+}
+
+.right-panel .header .icon {
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-panel .body {
+    padding: 5px;
+    width: 100%;
+}
+
+.right-panel .box1 {
+    height: 25px;
+    width: 100%;
+    color: #fff;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-panel .box2 {
+    color: #fff;
+    font-size: .8rem;
+}
+
+.table-container {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container tr {
+    width: 100%;
+}
+
+.table-container tr td,
+.table-container tr th {
+    color: #fff;
+    padding: 0.2em;
+    text-align: center;
+    border: 1px solid #61616160;
+}
+
+.table-container tr th:first-child,
+.table-container tr td:first-child {
+    text-align: left;
+}
+
+.table-container .tr {
+    background: #4bb14e;
+}
+
+.table-container td {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    word-wrap: break-word;
+}
+
+/* #rightPanel {
+    display: none;
+} */
+
+/* #datePicker {
+    display: none;
+} */
+
+
+
+
+.left-panel .container3 .box button:hover {
+    background: #505050;
+}
+
+/* .off{
+    display: none;
+} */
