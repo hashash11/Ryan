@@ -1,0 +1,63 @@
+<div class="container1">
+    <div class="box">
+        <div class="text">
+            Search
+        </div>
+        <div class="input">
+            <input type="search" name="" id="" placeholder="Enter a satellite name...">
+        </div>
+    </div>
+    <div class="box">
+        <div class="text">
+            Speed
+        </div>
+        <div class="input">
+            <Input class="range" type="range" (input)="changeValue($event)" name="range" value="25" min="0"
+                max="1000" #range>
+            <label for="range">{{speedValue}}</label>
+        </div>
+    </div>
+    <div class="box">
+        <div class="text">
+            Debris
+        </div>
+        <div class="input">
+            <input type="checkbox" name="debris" (change)="debrisSelected(debris.checked)" checked #debris>
+        </div>
+    </div>
+    <div class="box">
+        <div class="text">
+            Beam
+        </div>
+        <div class="input">
+            <input type="checkbox" name="beam" (change)="beamSelected(beam.checked)" checked #beam>
+        </div>
+    </div>
+    <div class="box">
+        <div class="text">
+            Instruments
+        </div>
+        <div class="input">
+            <input type="checkbox" name="instruments" (change)="instrumentsSelected(instruments.checked)"
+                checked #instruments>
+        </div>
+    </div>
+    <div class="box">
+        <div class="text">
+            Follow Earth
+        </div>
+        <div class="input">
+            <input type="checkbox" name="followEarth" (change)="followEarthSelected(followEarth.checked)"
+                checked #followEarth>
+        </div>
+    </div>
+    <div class="box">
+        <div class="text">
+            Auto Refresh
+        </div>
+        <div class="input">
+            <input type="checkbox" name="autoRefresh" (change)="autoRefreshSelected(autoRefresh.checked)"
+                checked #autoRefresh>
+        </div>
+    </div>
+</div>

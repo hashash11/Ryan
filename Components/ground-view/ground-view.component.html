@@ -1,0 +1,40 @@
+<!-- ground view -->
+<div class="container4">
+    <div class="box">
+        <div class="swi">
+            <label class="switch">
+                <input  type="checkbox" (change)="toggleShow()" #switchGround>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="text">
+            Ground view
+        </div>
+    </div>
+
+    <div *ngIf="isShown"  #switchGroundPanel>
+        <div class="box1">
+            <div class="small-txt">
+                Choose location
+            </div>
+        </div>
+        <div class="box1">
+            <select name="" id="chooseLocation" (change)="locationSelected(chooseLocation.value)" #chooseLocation>
+                <option value="" hidden></option>
+                <option value="Pocker Flat Incoherent Scatter Radar">Pocker Flat Incoherent Scatter Radar</option>
+                <option value="Midland Space Radar">Midland Space Radar</option>
+                <option value="Costa Rica Space Radar 1">Costa Rica Space Radar 1</option>
+                <option value="Costa Rica Space Radar 2">Costa Rica Space Radar 2</option>
+                <option value="Kiwi Space Radar 1">Kiwi Space Radar 1</option>
+                <option value="Kiwi Space Radar 2">Kiwi Space Radar 2</option>
+                <option value="Azores Space Radar 1">Azores Space Radar 1</option>
+                <option value="Custom location...">Custom location...</option>
+            </select>
+        </div>
+        <div class="box1" style="margin-top: 10px;">
+            <div class="txt">
+                Choose location from globe
+            </div>
+        </div>
+    </div>
+</div>
